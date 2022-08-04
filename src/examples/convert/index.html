@@ -6,7 +6,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
         <link rel="manifest" href="../favicon/site.webmanifest">
-        <title>Spiky Thing</title>
+        <title>Compute Sample: Convert to 3DM</title>
         <style>
             body { margin: 0; }
             canvas { width: 100%; height: 100%; }
@@ -37,21 +37,9 @@
     <body>
         <div id="loader"></div> 
         <div id="container">
-            <div id="overlay">
-                <div>
-                    <input type="range" id="count" name="count" min="0" max="100" value="100" step="10">
-                    <label for="count">Count</label>
-                </div>
-                <div>
-                    <input type="range" id="radius" name="radius" min="1" max="10.00" value="5" step="1">
-                    <label for="radius">Radius</label>
-                </div>
-                <div>
-                    <input type="range" id="length" name="length" min="1" max="10.00" value="3" step="1">
-                    <label for="length">Length</label>
-                </div>
-                <p>Open the dev tools console to see example timings.</p>
-            </div>
+            <div><input type="file" accept=".stl, .obj, .fbx" id="upload"></div>
+            <div><button id="downloadButton" disabled>Download</button></div>
+            <div id="canvas"></div>
         </div>
 
         <!-- Import maps polyfill -->
@@ -62,11 +50,12 @@
                 "imports": {
                     "three": "https://unpkg.com/three@0.140.2/build/three.module.js",
                     "three/examples/jsm/controls/OrbitControls": "https://unpkg.com/three@0.140.2/examples/jsm/controls/OrbitControls.js",
-                    "three/examples/jsm/loaders/3DMLoader": "https://unpkg.com/three@0.140.2/examples/jsm/loaders/3DMLoader.js"
+                    "three/examples/jsm/loaders/3DMLoader": "https://unpkg.com/three@0.140.2/examples/jsm/loaders/3DMLoader.js",
+                    "rhino3dm":"https://cdn.jsdelivr.net/npm/rhino3dm@7.14.0/rhino3dm.module.js"
                 }
             }
         </script>
 
-        <script type="module" src="./script.js"></script>
+        <script type="module" src="app.js"></script>
     </body>
 </html>
